@@ -1,7 +1,7 @@
 import { Flex, Text} from '@chakra-ui/react'
 import { FaTimes } from 'react-icons/fa'
 
-export default function Card() {
+export default function Card({accName, accValue, onClick, doubleClick, isPaid}) {
 
   return (
        <Flex
@@ -19,26 +19,34 @@ export default function Card() {
 
           position='relative'
 
+          onDoubleClick={doubleClick}
+
         >
 
         <Text
           fontSize='14px'
           fontWeight={700}
           px='10px'
+          textDecoration={isPaid ? "line-through red 2px" : ""}
         >
-                Cartão de Crédito 
+                {accName} 
         </Text>
 
         <Text
           fontSize='14px'
           fontWeight={700}
-         px='10px'
+          px='10px'
+          textDecoration={isPaid ? "line-through red 2px" : ""}
         >
-                R$ 
+                R$ {accValue}
         </Text>
         {/* a posição dessa div Flex e absoluta em relação a div flex RELATIVA(A PRINCIPAL) */}
         
-        <Flex  position='absolute' right='2'  >
+        <Flex
+          position='absolute'
+          right='2'
+          onClick={onClick} 
+        >
           <FaTimes color='red' />
         </Flex>
 

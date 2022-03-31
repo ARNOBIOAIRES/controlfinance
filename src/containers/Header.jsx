@@ -1,7 +1,7 @@
 import { Flex, Button, Image } from '@chakra-ui/react'
 
 
- export default function Header() {
+ export default function Header( {toggleFormOpen, formIsOpen } ) {
 
   return (
     <Flex
@@ -21,10 +21,11 @@ import { Flex, Button, Image } from '@chakra-ui/react'
         <Button
           height='30px'
           background="#9fd7ff"
+         onClick={toggleFormOpen}
           >
-            ADICIONAR
+            {formIsOpen ? 'FECHAR' : 'ADICIONAR' }
         </Button>
-        
+
       </Flex>
   )
 

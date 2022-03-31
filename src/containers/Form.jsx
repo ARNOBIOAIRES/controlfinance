@@ -7,7 +7,15 @@ import { Text,
    Checkbox
   } from '@chakra-ui/react'
 
-export default function Form() {
+const Form = ({
+    accountName,
+    accountValue, 
+    isPaid,
+    setAccName,
+    setAccValue,
+    setIsPaid,
+    handleSubmit
+  }) => {
 
   return (
     <Flex
@@ -33,19 +41,33 @@ export default function Form() {
         id='nomeDaConta'
       >
         <FormLabel>Nome da conta</FormLabel>
-          <Input></Input>
+          <Input
+          value={accountName}
+          onChange={event => setAccName(event.target.value)}
+          ></Input>
        </FormControl>
 
        <FormControl id='valorDaConta'>
+        
         <FormLabel>Valor da conta</FormLabel>
-        <Input></Input>
+        <Input
+          type='number'
+          value={accountValue}
+          onChange={event => setAccValue(event.target.value)}
+
+        ></Input>
        </FormControl>
 
-      <Checkbox> Pagou ?</Checkbox>
+      <Checkbox
+        value={isPaid}
+        onChange={event => setIsPaid(event.target.checked)}
+        > Pagou ?</Checkbox>
 
       <Button
           height='40px'
           background="#9fd7ff"
+          onClick={handleSubmit}
+
           >ADICIONAR</Button>
 
     </Flex> 
@@ -53,3 +75,5 @@ export default function Form() {
 
   )
 }
+
+export default Form
