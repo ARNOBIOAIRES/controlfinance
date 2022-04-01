@@ -55,6 +55,10 @@ export default function Home() {
       isClosable: true,
     }) 
 
+    setAccontName('')
+    setAccontValue(0)
+    setIsPaid(false)
+
       } catch (error) {
         console.error(error)
         toast({
@@ -112,6 +116,15 @@ export default function Home() {
           .update({ isPaid: !isPaid })
           .eq('id', idQuery)
           .single()
+
+          toast({
+            title: 'Conta atualizada com sucesso.',
+            status: 'success',
+            duration: 9000,
+            isClosable: true,
+          })
+
+
           const newData = data.map(item =>  {
             if (item.id == idQuery) {
               return { ...item, isPaid: !item.isPaid }
@@ -157,8 +170,10 @@ export default function Home() {
         <Flex 
           mx='10px'
           my='15px'>
-            <Text> Valor a pagar R$: {totalValueToPay}</Text>
+
+          <Text> Valor a pagar R$: {totalValueToPay}</Text>
         </Flex>
+         
 
        {
          data && data.map(acc => (

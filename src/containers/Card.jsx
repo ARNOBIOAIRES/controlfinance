@@ -27,7 +27,7 @@ export default function Card({accName, accValue, onClick, doubleClick, isPaid}) 
           fontSize='14px'
           fontWeight={700}
           px='10px'
-          textDecoration={isPaid ? "line-through red 2px" : ""}
+          textDecoration={isPaid ? "line-through red 2px" : " "}
         >
                 {accName} 
         </Text>
@@ -36,7 +36,7 @@ export default function Card({accName, accValue, onClick, doubleClick, isPaid}) 
           fontSize='14px'
           fontWeight={700}
           px='10px'
-          textDecoration={isPaid ? "line-through red 2px" : ""}
+          textDecoration={ isPaid ? "line-through red 2px" : " " }
         >
                 R$ {accValue}
         </Text>
@@ -45,6 +45,8 @@ export default function Card({accName, accValue, onClick, doubleClick, isPaid}) 
         <Flex
           position='absolute'
           right='2'
+          cursor="pointer"
+
           onClick={onClick} 
         >
           <FaTimes color='red' />
